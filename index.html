@@ -5,31 +5,52 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
 		<link rel="stylesheet" href="style.css">
-		<title>JS Challenge</title>
+		<title>Counter Project 2</title>
 	</head>
 	<body>
         <div class="primer">
-            <div class="container-color" id="container"></div>
+         
             <div class="btn-wrap">
-                <div class="btn yellow" colorName="#ffe500e6"></div>
-                <div class="btn salad" colorName="#4CAF50"></div>
-                <div class="btn pink" colorName="#ffc0cb"></div>
+                <div id="menus" class="btn minus">&#8722;</div>
+                <div  id="count" class="count">30</div>
+                <div  id="plus" class="btn plus">&plus;</div>
+                <p id="mess" class="limited d-none"><span>30</span> is limit count</p>
             </div>
+          
         </div>
     </body>
     <script>
-        var btn = document.getElementsByClassName('btn');
-        var container = document.getElementById("container");
-        
-        for (var i = 0 ; i < btn.length; i++) {
-            btn[i].addEventListener('click' , addcolor , false ) ; 
-        }
-  
-        function addcolor(){
-          var attribute = this.getAttribute('colorName');
-          container.style.background = attribute;
-        
+         var plus = document.getElementById("plus");
+         var menus = document.getElementById("menus");
+         var count = document.getElementById("count");
+         var massage = document.getElementById("mess");
 
+         function Counter(limit, btn, sign){
+            btn.addEventListener('click' , clickCount , false );
+         function clickCount(){
+                let countContent = count.textContent;
+                function limitation(){
+                        btn.style.background = "#3e2500";
+                        btn.classList.add("blocked");
+                        massage.classList.remove("d-none");
+                   }
+                function removelimit(unlimbtn){
+                        unlimbtn.style.background = "#FF9800";
+                        unlimbtn.classList.remove("blocked");
+                        massage.classList.add("d-none");
+                   }
+                if(sign == "+"){
+                    countContent++;
+                    count.textContent = countContent;
+                    (countContent >= limit)?  limitation(): removelimit(menus);
+                } else{
+                    countContent--;
+                    count.textContent = countContent;
+                    ( limit  >= countContent )?  limitation(): removelimit(plus);
+                }
+            }
         }
+        Counter(25, menus, "-");  
+        Counter(35, plus, "+");  
     </script>
 </html>

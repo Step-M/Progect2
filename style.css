@@ -4,21 +4,13 @@ body {
 .primer {
     width: 100%;
     height: 100vh;
-    background: #002824;
+    background: #1d1100; 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-
-.container-color {
-    width: 90%;
-    max-width: 400px;
-    height: 150px;
-    background: #009688;
-    border-radius: 20px;
-}
 
 .btn {
     width: 50px;
@@ -30,17 +22,50 @@ body {
 .btn:hover {
     transform: scale(.97);
     transition: all 0.3s;
+    background: #ff5722;
 }
 .btn-wrap {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 265px;
+    position: relative;
 }
-.salad {
-    background: #4CAF50;
+.count {
+    color: #FF5722;
+    width: auto;
+    height: 86px;
+    font-size: 90px;
+    line-height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.yellow {
-    background: #ffe500e6;
+.btn {
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    color: #1d1100; 
+    font-size: 35px;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#FF9800;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
-.pink {
-    background: pink;
+.blocked {
+    pointer-events: none;
+}
+.limited {
+    color: #cccccc;
+    position: absolute;
+    bottom: -40px;
+    text-align: center;
+    width: 100%;
+}
+
+.d-none{
+    display: none;
 }
